@@ -16,7 +16,7 @@
 <style>
     main{
         align-self: flex-start;
-        margin: 15px;
+        margin: 5px 15px 5px 15px;
     }
     main #message{
         display: flex;
@@ -38,14 +38,17 @@
         z-index: 15;
     }
     main #message #content{
-        width: 100%;
+        text-align: center;
+        max-width: 70rem;
+        min-width: 5rem;
         color: white;
-        padding: 15px 0px 10px 15px;
+        padding: 10px 15px 10px 15px;
         background-color: #a29bfe;
         border-radius: 25px;
         opacity: 0;
         animation: contentIn 200ms forwards;
         animation-delay: 200ms;
+        overflow-wrap: break-word;
     }
     .selfMessage{
         align-self: flex-end;
@@ -56,7 +59,7 @@
             opacity: 0%;
         }
         to{
-            transform: translateY(13px);
+            transform: translateY(10px);
             opacity: 100%;
         }
     }

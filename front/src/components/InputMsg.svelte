@@ -1,15 +1,20 @@
 <script>
-    import {messages, username} from './store'
+    import {messages} from './store'
+    import {sendMessage} from '../utils/client'
+
     let msgBox = ''
     const onKeyPress = e => {
         if (e.charCode == 13) onSendMsg()
     }
     const onSendMsg = () =>{
+        if (msgBox.replaceAll(' ', '') == '') return
         $messages = [...$messages, {
-            msg: msgBox,
-            username: $username,
+            message: msgBox,
+            username: localStorage.getItem('username'),
             selfMessage: true
         }]
+        sendMessage(msgBox)
+        msgBox = ''
     }
 </script>
 
@@ -19,6 +24,7 @@
         id='inputMsg'
         type='text'
         bind:value={msgBox}
+        on:keypress={onKeyPress}
          />
          <button id='btnMsg' on:click={onSendMsg}>Enviar</button>
     </div>
