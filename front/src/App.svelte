@@ -2,9 +2,10 @@
 	import InputMsg from './components/InputMsg.svelte'
 	import MsgList from './components/MsgList.svelte'
 	import UserConfig from './components/modal/UserConfig.svelte'
+	import {deg} from './components/store'
 </script>
 
-<main>
+<main style="--deg:{$deg}deg">
 	<div id='app'>
 		<UserConfig />
 		<MsgList />
@@ -17,7 +18,9 @@
 		padding: 0
 	}
 	main{
-		background-color: #a29bfe;
+		background: rgb(203,136,244);
+		background: linear-gradient(var(--deg), rgba(203,136,244,1) 0%, rgba(110,251,188,1) 51%, rgba(0,212,255,1) 100%);
+		transition: background 1000ms;
 		width: 100%;
 		height: 100%;
 		max-height: 100vh;

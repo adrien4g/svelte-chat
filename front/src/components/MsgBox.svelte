@@ -47,7 +47,7 @@
         border-radius: 25px;
         opacity: 0;
         animation: contentIn 200ms forwards;
-        animation-delay: 200ms;
+        animation-delay: 150ms;
         overflow-wrap: break-word;
     }
     .selfMessage{
@@ -59,7 +59,7 @@
             opacity: 0%;
         }
         to{
-            transform: translateY(10px);
+            transform: translateY(13px);
             opacity: 100%;
         }
     }

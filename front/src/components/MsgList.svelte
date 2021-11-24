@@ -2,7 +2,7 @@
     import {beforeUpdate, afterUpdate} from 'svelte'
     import MsgBox from './MsgBox.svelte'
     import {messages} from './store'
-    import {socket} from '../utils/client'
+
     let chatList
     let autoscroll
     beforeUpdate(() =>{
@@ -13,10 +13,6 @@
         if (autoscroll) chatList.scrollTo(0, chatList.scrollHeight)
     })
 
-    socket.addEventListener('message', msg => {
-        $messages = [...$messages, JSON.parse(msg.data)]
-        
-    })
 </script>
 <main>
     <div id='msgList'  bind:this={chatList}>

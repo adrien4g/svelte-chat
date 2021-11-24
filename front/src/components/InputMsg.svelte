@@ -1,8 +1,11 @@
 <script>
     import {messages} from './store'
-    import {sendMessage} from '../utils/client'
+    import {sendMessage, degManager} from '../utils/client'
+    import EmojiSelector from 'svelte-emoji-selector'
+    import {deg} from './store'
 
     let msgBox = ''
+
     const onKeyPress = e => {
         if (e.charCode == 13) onSendMsg()
     }
@@ -12,14 +15,19 @@
             message: msgBox,
             username: localStorage.getItem('username'),
             selfMessage: true
-        }]
+        }]        
+        degManager()
         sendMessage(msgBox)
         msgBox = ''
+    }
+    function onEmoji(event) {
+        msgBox += event.detail;
     }
 </script>
 
 <main>
     <div id='inputBox'>
+        <EmojiSelector on:emoji={onEmoji} />
         <input 
         id='inputMsg'
         type='text'
@@ -39,6 +47,7 @@
         display: flex;
         justify-content: center;
     }
+
     main #inputBox #inputMsg{
         width: 100%;
         border-radius: 25px;
