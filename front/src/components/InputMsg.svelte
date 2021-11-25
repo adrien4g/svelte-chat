@@ -1,8 +1,7 @@
 <script>
-    import {messages} from './store'
-    import {sendMessage, degManager} from '../utils/client'
+    import {messages} from '../utils/store'
+    import {sendMessage, degManager} from '../utils/network'
     import EmojiSelector from 'svelte-emoji-selector'
-    import {deg} from './store'
 
     let msgBox = ''
 

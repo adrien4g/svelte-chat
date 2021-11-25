@@ -2,7 +2,7 @@
 	import InputMsg from './components/InputMsg.svelte'
 	import MsgList from './components/MsgList.svelte'
 	import UserConfig from './components/modal/UserConfig.svelte'
-	import {deg} from './components/store'
+	import {deg} from './utils/store'
 </script>
 
 <main style="--deg:{$deg}deg">

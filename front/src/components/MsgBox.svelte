@@ -59,7 +59,7 @@
             opacity: 0%;
         }
         to{
-            transform: translateY(13px);
+            transform: translateY(8px);
             opacity: 100%;
         }
     }

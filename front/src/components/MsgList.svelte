@@ -1,7 +1,7 @@
 <script>
     import {beforeUpdate, afterUpdate} from 'svelte'
     import MsgBox from './MsgBox.svelte'
-    import {messages} from './store'
+    import {messages} from '../utils/store'
 
     let chatList
     let autoscroll
