@@ -2,11 +2,18 @@ import {messages, users, deg} from './store'
 
 // Start connection
 var PORT = 3639
-var HOST = '192.168.0.12'
+var HOST = '10.83.10.98'
 export const socket = new WebSocket(`ws://${HOST}:${PORT}`)
 
-// Handler data
-socket.addEventListener('message', data => {
+// Handlers
+socket.onopen = event => {
+    let username = localStorage.getItem('username')
+    if (username != null || username != '') return
+    socket.send(JSON.stringify({
+        username: username
+    }))
+}
+socket.onmessage = data => {
     const audio = new Audio('https://proxy.notificationsounds.com/notification-sounds/for-sure-576/download/file-sounds-1123-for-sure.mp3')
     audio.play()
     degManager()
@@ -14,7 +21,7 @@ socket.addEventListener('message', data => {
     let type_function = data.type
     delete data.type
     type_functions[type_function](data)
-})
+}
 
 // Type functions
 const type_functions = {
@@ -61,8 +68,6 @@ export const sendMessage = (msg) => {
         }))
     }
 }
-
-
 
 export const degManager = async () => {
     let spin_force = 60

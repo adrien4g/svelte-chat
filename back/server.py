@@ -5,7 +5,6 @@ connected = set()
 
 async def sendMsg(websocket, path):
     connected.add(websocket)
-    print(connected)
     try:
         async for message in websocket:
             print(websocket)
@@ -22,7 +21,7 @@ async def sendMsg(websocket, path):
         await websocket.send(message)
 
 async def main():
-    async with websockets.serve(sendMsg, "192.168.0.12", 3639):
+    async with websockets.serve(sendMsg, "10.83.10.98", 3639):
         await asyncio.Future()
 
 asyncio.run(main())

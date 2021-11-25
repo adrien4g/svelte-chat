@@ -59,8 +59,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 20;
     }
     main #background #modal{
+        z-index: 25;
         background-color: #a29bfe;
         padding: 20px;
         border-radius: 25px;
